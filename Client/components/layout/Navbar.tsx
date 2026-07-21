@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useLayoutEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Button from "../ui/Button";
@@ -30,14 +31,32 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
+useLayoutEffect(() => {
+  const updateIndicator = () => {
     const el = linkRefs.current[activeKey];
-    if (el) {
-      setIndicator({ left: el.offsetLeft, width: el.offsetWidth, opacity: 1 });
-    } else {
+
+    if (!el) {
       setIndicator((prev) => ({ ...prev, opacity: 0 }));
+      return;
     }
-  }, [activeKey, scrolled]);
+
+    setIndicator({
+      left: el.offsetLeft,
+      width: el.offsetWidth,
+      opacity: 1,
+    });
+  };
+
+  updateIndicator();
+
+  requestAnimationFrame(updateIndicator);
+
+  window.addEventListener("resize", updateIndicator);
+
+  return () => {
+    window.removeEventListener("resize", updateIndicator);
+  };
+}, [activeKey]);
 
   return (
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[92%] md:w-auto">

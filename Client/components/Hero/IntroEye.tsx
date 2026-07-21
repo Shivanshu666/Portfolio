@@ -9,13 +9,22 @@ export default function IntroEye({ children }: { children: ReactNode }) {
   const [visible, setVisible] = useState(true);
   const [closing, setClosing] = useState(false);
 
-  useEffect(() => {
-    document.body.style.overflow = visible ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [visible]);
+useEffect(() => {
+  const html = document.documentElement;
 
+  if (visible) {
+    html.style.overflow = "hidden";
+    html.style.scrollbarGutter = "stable";
+  } else {
+    html.style.overflow = "";
+    html.style.scrollbarGutter = "stable";
+  }
+
+  return () => {
+    html.style.overflow = "";
+    html.style.scrollbarGutter = "";
+  };
+}, [visible]);
   // Auto-dismiss after a few seconds even if the user doesn't click
   useEffect(() => {
     const timer = setTimeout(() => handleEnter(), 5000);
@@ -26,7 +35,13 @@ export default function IntroEye({ children }: { children: ReactNode }) {
   const handleEnter = () => {
     setClosing((prev) => {
       if (prev) return prev;
-      setTimeout(() => setVisible(false), 900);
+      setTimeout(() => {
+  setVisible(false);
+
+  requestAnimationFrame(() => {
+    window.dispatchEvent(new Event("resize"));
+  });
+}, 900);
       return true;
     });
   };
@@ -43,16 +58,20 @@ export default function IntroEye({ children }: { children: ReactNode }) {
           {/* Wide landscape canvas — the shader normalizes uv by canvas height, so a
               wider-than-tall box naturally produces the elongated horizontal eye
               shape (matches the react-bits reference), no square-crop needed. */}
-          <div
-            className="eye-breathe relative"
-            style={{
-              width: "clamp(300px, 78vw, 1000px)",
-              aspectRatio: "16 / 9",
-              maxHeight: "62vh",
-              transform: closing ? "scale(2.2)" : "scale(1)",
-              transition: "transform 900ms ease-in-out",
-            }}
-          >
+       <div
+  className={`eye-breathe relative
+    w-[95vw]
+    sm:w-[85vw]
+    md:w-[78vw]
+    lg:w-[70vw]
+    xl:w-[65vw]
+    aspect-[16/9]
+    max-w-[1100px]
+    max-h-[60vh]
+    transition-transform duration-900 ease-in-out
+    ${closing ? "scale-[2.2]" : "scale-100"}
+  `}
+>
             <EvilEye
               eyeColor="#4f8cff"
               intensity={1.7}
