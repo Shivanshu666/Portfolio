@@ -11,29 +11,7 @@ export default function About() {
       .forEach(el => el.classList.add("visible"));
   }, []);
 
-  const experiences = [
-    {
-      period: "2024 – Present",
-      title: "Senior Software Engineer",
-      company: "FinTech Solutions · Remote",
-      desc: "Architected event-driven microservices handling £2B+ in transactions. Led a team of 8, introduced DDD and CQRS patterns, reduced latency by 40%.",
-      tags: ["Go", "Kafka", "React"],
-    },
-    {
-      period: "2022 – 2024",
-      title: "Full-Stack Developer",
-      company: "HealthTech Innovations · Remote",
-      desc: "Built a HIPAA-compliant patient portal used by 5M+ users. Implemented real-time notifications with WebSockets and improved test coverage to 92%.",
-      tags: ["Node", "TypeScript", "PostgreSQL"],
-    },
-    {
-      period: "2021 – 2022",
-      title: "Junior Developer",
-      company: "E-Commerce Giant · Manchester",
-      desc: "Developed and maintained high-traffic e-commerce platform. Optimised database queries and reduced page load time by 60%.",
-      tags: ["PHP", "React", "MySQL"],
-    },
-  ];
+
 
   return (
     <section className="min-h-screen bg-[#0b0e14] pt-24 pb-16 px-4 sm:px-6 lg:px-8">
@@ -139,56 +117,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* ─── EXPERIENCE SECTION ──────────────────────────────── */}
-        <div className="reveal mt-12">
-          <div className="text-center mb-12">
-            <span className="text-[#4f8cff] text-sm font-semibold tracking-wider uppercase">
-              Experience
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2">
-              My <span className="gradient-cyan">journey</span>
-            </h2>
-            <div className="w-16 h-1 bg-[#4f8cff] rounded mx-auto mt-4"></div>
-          </div>
-
-          <div className="relative">
-            {/* Timeline line - hidden on mobile */}
-            <div className="hidden sm:block absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-[#4f8cff]/20 -translate-x-1/2"></div>
-
-            {experiences.map((exp, idx) => (
-              <div
-                key={idx}
-                className={`relative flex flex-col sm:flex-row gap-6 mb-12 reveal ${
-                  idx % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
-                }`}
-                style={{ transitionDelay: `${idx * 0.1}s` }}
-              >
-                {/* Mobile dot */}
-                <div className="sm:hidden absolute left-[-8px] top-3 w-4 h-4 rounded-full bg-[#4f8cff] border-2 border-[#0b0e14] shadow-lg"></div>
-
-                <div className={`sm:w-1/2 ${idx % 2 === 0 ? "sm:pr-8 md:pr-12" : "sm:pl-8 md:pl-12"} pl-6 sm:pl-0`}>
-                  <span className="text-sm font-semibold text-[#4f8cff]">{exp.period}</span>
-                  <h3 className="text-xl font-bold text-white mt-1">{exp.title}</h3>
-                  <p className="text-white/50 font-medium">{exp.company}</p>
-                  <p className="text-white/60 mt-2 leading-relaxed">{exp.desc}</p>
-                  <div className="flex flex-wrap gap-2 mt-3">
-                    {exp.tags.map((tag) => (
-                      <span key={tag} className="skill-tag-dark">{tag}</span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Desktop dot */}
-                <div className="hidden sm:flex sm:w-1/2 items-center justify-center">
-                  <div className="relative">
-                    <div className="w-4 h-4 rounded-full bg-[#4f8cff] border-2 border-[#0b0e14] shadow-lg glow-dot"></div>
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-[#4f8cff]/5 blur-xl"></div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+   
       </div>
     </section>
   );
