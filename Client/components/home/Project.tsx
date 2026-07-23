@@ -15,51 +15,76 @@ interface Project {
 }
 
 const projects: Project[] = [
+{
+  id: "nivpharma",
+  title: "NIV Pharma",
+  tagline: "Pharmaceutical Import & Export Website",
+  description:
+    '<span class="text-[#c792ea]">const</span> website = <span class="text-[#00e5ff]">launch</span>(<span class="text-[#c3e88d]">"business"</span>) → built a responsive corporate website with <span class="text-[#00e5ff]">PDF viewing & download</span>, a backend-powered <span class="text-[#00e5ff]">contact form</span> integrated with business email, and implemented <span class="text-[#00e5ff]">SEO optimization</span> with Google Search Console, helping the website rank at the top for branded searches like <span class="text-[#c3e88d]">"NIV Pharma"</span>.',
+  stack: [
+    "React.js",
+    "Node.js",
+    "Express.js",
+    "SEO",
+    "Google Search Console",
+    "Vercel"
+  ],
+  status: "live",
+  liveUrl: "https://www.nivpharma.org.in/",
+  codeUrl: "https://github.com/Shivanshu666/Import-Export_Pharma"
+},
+{
+  id: "aruhkoncepts",
+  title: "AruhKoncepts",
+  tagline: "Interior Design Business Website",
+  description:
+    '<span class="text-[#c792ea]">const</span> website = <span class="text-[#00e5ff]">craft</span>(<span class="text-[#c3e88d]">"creative"</span>) → developed a modern interior design website with <span class="text-[#00e5ff]">lazy loading</span>, <span class="text-[#00e5ff]">code splitting</span>, and <span class="text-[#00e5ff]">image optimization</span> for faster performance, implemented <span class="text-[#00e5ff]">SEO best practices</span>, and integrated a backend-powered <span class="text-[#00e5ff]">contact form</span> with business email notifications before deploying it on a custom domain.',
+  stack: [
+    "React.js",
+    "Node.js",
+    "Express.js",
+    "SEO",
+    "Custom Domain"
+  ],
+  status: "live",
+  liveUrl: "https://aruh-koncepts-interior-website-bicp.vercel.app/",
+  codeUrl: "https://github.com/Shivanshu666/AruhKoncepts_InteriorWebsite"
+},
+{
+  id: "interviewpilot-ai",
+  title: "InterviewPilot AI",
+  tagline: "AI-Powered Interview Preparation Platform",
+  description:
+    '<span class="text-[#c792ea]">const</span> platform = <span class="text-[#00e5ff]">build</span>(<span class="text-[#c3e88d]">"AI"</span>) → developed a full-stack interview platform with <span class="text-[#00e5ff]">JWT authentication</span>, <span class="text-[#00e5ff]">Gemini AI</span>-powered resume analysis, ATS compatibility reports, AI-generated interview questions, <span class="text-[#00e5ff]">PDF parsing</span>, resume optimization, and secure REST APIs deployed on Vercel & Render.',
+  stack: [
+    "React.js",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Gemini AI",
+    "JWT"
+  ],
+  status: "live",
+  liveUrl: "https://interview-plain-ai.vercel.app/login",
+  codeUrl: "https://github.com/Shivanshu666/InterviewPlain_Ai"
+},
   {
-    id: "neuraflow",
-    title: "NeuraFlow",
-    tagline: "AI workflow automation platform",
-    description:
-      '<span class="text-[#c792ea]">const</span> impact = <span class="text-[#00e5ff]">automate</span>(<span class="text-[#c3e88d]">\'ops\'</span>) → cut manual task time by 68% for 40+ teams, orchestrating LLM agents across internal tools.',
-    stack: ["Next.js", "TypeScript", "tRPC", "Postgres"],
-    status: "live",
-    liveUrl: "https://neuraflow.example.com",
-    codeUrl: "https://github.com/example/neuraflow",
-  },
-  {
-    id: "pulse-commerce",
-    title: "PulseCommerce",
-    tagline: "Real-time e-commerce analytics dashboard",
-    description:
-      '<span class="text-[#c792ea]">export</span> <span class="text-[#00e5ff]">stream</span>(events) → sub-200ms live revenue, funnel, and cohort views for stores doing <span class="text-[#c3e88d]">$2M+</span>/mo in GMV.',
-    stack: ["React", "Node.js", "WebSockets", "ClickHouse"],
-    status: "live",
-    liveUrl: "https://pulsecommerce.example.com",
-    codeUrl: "https://github.com/example/pulse-commerce",
-  },
-  {
-    id: "chatterbox",
-    title: "Chatterbox",
-    tagline: "End-to-end encrypted messaging app",
-    description:
-      '<span class="text-[#c792ea]">async function</span> <span class="text-[#00e5ff]">encrypt</span>(msg) → E2EE chat with disappearing messages, built for 25k+ monthly active users on <span class="text-[#c3e88d]">iOS/Android</span>.',
-    stack: ["React Native", "Firebase", "libsodium"],
-    status: "dev",
-    liveUrl: "#",
-    codeUrl: "https://github.com/example/chatterbox",
-    previewUrl: "https://chatterbox-preview.example.com",
-  },
-  {
-    id: "devdeploy",
-    title: "DevDeploy",
-    tagline: "One-click CI/CD deployment tool",
-    description:
-      '<span class="text-[#c792ea]">return</span> <span class="text-[#00e5ff]">deploy</span>(repo) → git-push-to-live pipeline with preview URLs, used internally by <span class="text-[#c3e88d]">120+</span> developers.',
-    stack: ["Go", "Docker", "AWS", "Terraform"],
-    status: "live",
-    liveUrl: "https://devdeploy.example.com",
-    codeUrl: "https://github.com/example/devdeploy",
-  },
+  id: "revive-auto-studio",
+  title: "Revive",
+  tagline: "Auto Studio & Car Garage Website",
+  description:
+    '<span class="text-[#c792ea]">const</span> website = <span class="text-[#00e5ff]">build</span>(<span class="text-[#c3e88d]">"automotive"</span>) → developed a responsive business website featuring a <span class="text-[#00e5ff]">service catalog</span>, a backend-powered <span class="text-[#00e5ff]">contact form</span> with email notifications, <span class="text-[#00e5ff]">SEO optimization</span>, and performance enhancements through lazy loading, code splitting, and image optimization before deploying it on a custom domain.',
+  stack: [
+    "React.js",
+    "Node.js",
+    "Express.js",
+    "SEO",
+    "Custom Domain"
+  ],
+  status: "live",
+  liveUrl: "https://revive-shivanshu.vercel.app/",
+  codeUrl: "https://github.com/Shivanshu666/Revive-Shivanshu"
+}
 ];
 
 // ─── PROJECT CARD COMPONENT ──────────────────────────────────────
@@ -164,19 +189,12 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 reveal">
-          <span className="text-[#00e5ff] text-sm font-semibold tracking-[0.15em] uppercase">
-            Portfolio
-          </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-3">
             <span className="text-white">Projects I've </span>
             <span className="gradient-cyan font-mono">shipped</span>
           </h2>
           <div className="w-16 h-1 bg-[#00e5ff] rounded mx-auto mt-4"></div>
-          <p className="text-white/60 mt-6 leading-relaxed">
-            A handful of production builds from the last year —{" "}
-            <span className="text-[#00e5ff]">0{projects.length}</span> shown,
-            each solving a real problem for real users.
-          </p>
+       
         </div>
 
         {/* Projects Grid */}
@@ -189,7 +207,7 @@ export default function Projects() {
         {/* View All */}
         <div className="mt-12 flex justify-center">
           <Link
-            href="#"
+            href="/work"
             className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-white/10 text-white/60 hover:text-[#00e5ff] hover:border-[#00e5ff]/50 transition-all duration-300 text-sm font-medium"
           >
             View all projects

@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
-import Project from "../components/home/Project"
+import Project from "../components/home/Project";
+import Skills from "../components/home/Skills";
 
 // ─── Hero code block, typed out character by character ─────────
 const CODE_SEGMENTS = [
@@ -38,111 +39,6 @@ const CODE_LENGTH = CODE_SEGMENTS.reduce((n, s) => n + s.text.length, 0);
 
 const HERO_TAGS = ["React", "Next.js", "Node", "TypeScript", "Kubernetes", "Go"];
 
-// ─── Mock API (replace with your real endpoint) ────────────────
-const fetchProjects = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 800));
-  return [
-    {
-      id: 1,
-      title: "TaskFlow — AI Task Manager",
-      description:
-        "Full‑stack productivity app that learns how you work. TensorFlow.js models run on‑device to rank your day by urgency, energy level, and deadlines — no data ever leaves the browser. Built with Next.js server actions, Prisma, and PostgreSQL.",
-      tech: ["Next.js", "TensorFlow.js", "Prisma", "PostgreSQL", "Tailwind"],
-      link: "https://taskflow-demo.vercel.app",
-      github: "https://github.com/shivanshu/taskflow",
-      status: "Live",
-      year: "2025",
-      category: "Full‑Stack · AI",
-      stats: [
-        { label: "Active users", value: "2.4k" },
-        { label: "Lighthouse", value: "99" },
-        { label: "Uptime", value: "99.9%" },
-      ],
-      featured: true,
-    },
-    {
-      id: 2,
-      title: "PulseBoard",
-      description:
-        "Real‑time analytics dashboard streaming 50k+ events/min over WebSockets. D3 visualizations stay at 60fps thanks to canvas rendering and TanStack Query cache windows.",
-      tech: ["React", "WebSockets", "D3", "TanStack Query"],
-      link: "https://pulseboard-demo.vercel.app",
-      github: "https://github.com/shivanshu/pulseboard",
-      status: "Live",
-      year: "2025",
-      category: "Data Viz",
-      featured: false,
-    },
-    {
-      id: 3,
-      title: "HelmScope",
-      description:
-        "Kubernetes operator written in Go with a React control plane. One-click canary deploys, automatic rollbacks, and live pod health across multi‑cluster setups.",
-      tech: ["Go", "Kubernetes", "React", "TypeScript"],
-      link: "https://helmscope.dev",
-      github: "https://github.com/shivanshu/helmscope",
-      status: "Beta",
-      year: "2024",
-      category: "DevOps",
-      featured: false,
-    },
-    {
-      id: 4,
-      title: "ShopStream Commerce",
-      description:
-        "Headless e‑commerce storefront with edge‑rendered product pages, Stripe checkout, and Redis‑backed cart sessions. Sub‑second LCP on 3G networks.",
-      tech: ["Next.js", "Stripe", "Redis", "GraphQL"],
-      link: "https://shopstream-demo.vercel.app",
-      github: "https://github.com/shivanshu/shopstream",
-      status: "Live",
-      year: "2024",
-      category: "E‑Commerce",
-      featured: false,
-    },
-    {
-      id: 5,
-      title: "DevLink Chat",
-      description:
-        "Slack‑style messaging for dev teams with threaded code snippets, syntax highlighting, and GitHub PR previews. Socket.io rooms with optimistic UI updates.",
-      tech: ["React", "Node.js", "Socket.io", "MongoDB"],
-      link: "https://devlink-chat.vercel.app",
-      github: "https://github.com/shivanshu/devlink",
-      status: "Beta",
-      year: "2025",
-      category: "Real‑time",
-      featured: false,
-    },
-    {
-      id: 6,
-      title: "SnapDocs API",
-      description:
-        "Documentation generator that turns OpenAPI specs into beautiful, searchable docs sites. Powers docs for 30+ open source projects.",
-      tech: ["TypeScript", "Node.js", "Algolia", "Vite"],
-      link: "https://snapdocs.dev",
-      github: "https://github.com/shivanshu/snapdocs",
-      status: "Live",
-      year: "2024",
-      category: "Dev Tools",
-      featured: false,
-    },
-    {
-      id: 7,
-      title: "Open Source Work",
-      description:
-        "Active contributor to TanStack Query, Next.js, and Tailwind CSS — 40+ merged PRs across bug fixes, docs, and performance patches.",
-      tech: ["Open Source", "TypeScript", "React"],
-      link: "https://github.com/shivanshu",
-      github: "https://github.com/shivanshu",
-      status: "Ongoing",
-      year: "2024 – Now",
-      category: "Community",
-      featured: false,
-    },
-  ];
-};
-
-
-
 const technologies = [
   { name: "React", icon: "⚛️" },
   { name: "Next.js", icon: "▲" },
@@ -167,7 +63,7 @@ export default function SoftwareEngineerPortfolio() {
   const cardRef = useRef<HTMLDivElement>(null);
   const { data: projects, isLoading, error } = useQuery({
     queryKey: ["projects"],
-    queryFn: fetchProjects,
+  
     staleTime: 1000 * 60 * 5,
   });
 
@@ -291,28 +187,28 @@ export default function SoftwareEngineerPortfolio() {
               <h1 className=" software text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-tight">
                 <span className="word-mask">
                   <span className="word-reveal" style={{ animationDelay: "0.15s" }}>
-                    <span className="text-white">Senior&nbsp;</span>
+                    <span className="text-white">Full&nbsp;</span>
                     <span className="gradient-blue gradient-animate font-mono">
-                      Software
+                      Stack
                     </span>
                   </span>
                 </span>
                 <span className="word-mask">
                   <span className="word-reveal" style={{ animationDelay: "0.32s" }}>
-                    <span className="text-white">Engineer</span>
+                    <span className="text-white">Developer</span>
                     <span className="gradient-cyan">.</span>
                   </span>
                 </span>
               </h1>
 
-              <p
-                className="hero-enter text-base sm:text-lg text-white/60 max-w-lg leading-relaxed"
-                style={{ animationDelay: "0.55s" }}
-              >
-                I architect full‑stack solutions with a focus on performance, clean
-                code, and developer experience. 8+ years of shipping products used by
-                millions.
-              </p>
+             <p
+  className="hero-enter text-base sm:text-lg text-white/60 max-w-lg leading-relaxed"
+  style={{ animationDelay: "0.55s" }}
+>
+  I develop modern full-stack applications using the MERN stack, focusing on
+  performance, scalable architecture, and clean, maintainable code. 1+ years
+  of hands-on experience building real-world web applications.
+</p>
 
               <div
                 className="hero-enter flex flex-wrap gap-3 sm:gap-4 pt-2"
@@ -337,25 +233,27 @@ export default function SoftwareEngineerPortfolio() {
                     />
                   </svg>
                 </a>
-                <a
-                  href="#projects"
-                  className="px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-white/10 text-white/80 hover:border-[#00e5ff] hover:text-white hover:-translate-y-0.5 transition-all flex items-center gap-2 text-sm sm:text-base group"
-                >
-                  View my work
-                  <svg
-                    className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                    />
-                  </svg>
-                </a>
+<a
+  href="https://www.linkedin.com/in/shivanshu-prajapati-b38012331/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-white/10 text-white/80 hover:border-[#00e5ff] hover:text-white hover:-translate-y-0.5 transition-all flex items-center gap-2 text-sm sm:text-base group"
+>
+  Connect on LinkedIn
+  <svg
+    className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M5 12h14m-6-6 6 6-6 6"
+    />
+  </svg>
+</a>
               </div>
             </div>
 
@@ -411,7 +309,7 @@ export default function SoftwareEngineerPortfolio() {
                     >
                       <path d="M12 0C5.37 0 0 5.37 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.3-.535-1.52.117-3.16 0 0 1.008-.322 3.3 1.23.96-.267 1.98-.4 2.997-.403 1.017.003 2.037.136 2.997.403 2.29-1.552 3.297-1.23 3.297-1.23.653 1.64.242 2.86.118 3.16.768.84 1.236 1.911 1.236 3.22 0 4.61-2.804 5.62-5.476 5.92.43.37.824 1.102.824 2.22v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
                     </svg>
-                    <span>github.com/alexrivera</span>
+                    <span>https://github.com/Shivanshu666</span>
                   </div>
                 </div>
               </div>
@@ -419,30 +317,9 @@ export default function SoftwareEngineerPortfolio() {
           </div>
         </div>
 
-        <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/20">
-          <span className="text-[10px] uppercase tracking-[0.2em]">Scroll</span>
-          <span className="scroll-line" aria-hidden="true"></span>
-        </div>
+   
       </section>
 
-{/* // teck stack  */}
-      <section>
- {/* ─── TECH STACK (integrated with hero) ───────────────────── */}
- <div className="w-full overflow-hidden relative py-4">
-      <div className="flex gap-6 animate-scroll-left w-max">
-        {tripledStack.map((tech, idx) => (
-          <div
-            key={idx}
-            className="flex items-center gap-2 px-4 py-1.5 border border-slate-200 rounded-md text-slate-700 text-sm whitespace-nowrap shadow-sm glow-pulse"
-          >
-            <span className="text-xl">{tech.icon}</span>
-            <span className="font-medium">{tech.name}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-
-      </section>
 
     {/* 2nd section  */}
       <section id="about" className="py-16 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 relative">
@@ -459,45 +336,56 @@ export default function SoftwareEngineerPortfolio() {
                 <span className="gradient-cyan">thrive</span>
               </h2>
               <div className="w-16 h-1 bg-[#00e5ff] rounded"></div>
-              <p className="text-white/70 text-base sm:text-lg leading-relaxed">
-                I believe great engineering is a blend of{" "}
-                <strong className="text-white">technical excellence</strong> and{" "}
-                <strong className="text-white">human collaboration</strong>. I've led
-                teams, architected microservices, and contributed to open source
-                projects used by thousands.
-              </p>
-              <p className="text-white/60 leading-relaxed">
-                From fintech to healthtech, I bring a product‑minded approach to every
-                line of code, ensuring performance, reliability, and developer joy.
-              </p>
-              <div className="grid grid-cols-2 gap-4 sm:gap-6 pt-4">
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/5">
-                  <p className="text-2xl sm:text-3xl font-bold text-white">
-                    8<span className="text-[#00e5ff]">+</span>
-                  </p>
-                  <p className="text-xs sm:text-sm text-white/40">Years of experience</p>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/5">
-                  <p className="text-2xl sm:text-3xl font-bold text-white">
-                    15<span className="text-[#00e5ff]">+</span>
-                  </p>
-                  <p className="text-xs sm:text-sm text-white/40">Projects shipped</p>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/5">
-                  <p className="text-2xl sm:text-3xl font-bold text-white">
-                    12M<span className="text-[#00e5ff]">+</span>
-                  </p>
-                  <p className="text-xs sm:text-sm text-white/40">Users impacted</p>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/5">
-                  <p className="text-2xl sm:text-3xl font-bold text-white">
-                    4<span className="text-[#00e5ff]">×</span>
-                  </p>
-                  <p className="text-xs sm:text-sm text-white/40">
-                    Open source contributor
-                  </p>
-                </div>
-              </div>
+<p className="text-white/70 text-base sm:text-lg leading-relaxed">
+  I'm a <strong className="text-white">Full Stack Developer</strong> with
+  <strong className="text-white"> 1 year of hands-on experience</strong> building
+  modern web applications. I enjoy creating responsive user interfaces,
+  developing secure backend APIs, and delivering reliable, high-performance
+  solutions from concept to deployment.
+</p>
+
+<p className="text-white/60 leading-relaxed">
+  I work with modern JavaScript technologies to build scalable applications,
+  focusing on clean code, performance, and maintainability. Every project is an
+  opportunity to learn, improve, and create software that makes an impact.
+</p>
+             <div className="grid grid-cols-2 gap-4 sm:gap-6 pt-4">
+  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/5">
+    <p className="text-2xl sm:text-3xl font-bold text-white">
+      1<span className="text-[#00e5ff]">+</span>
+    </p>
+    <p className="text-xs sm:text-sm text-white/40">
+      Years Experience
+    </p>
+  </div>
+
+  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/5">
+    <p className="text-2xl sm:text-3xl font-bold text-white">
+      15<span className="text-[#00e5ff]">+</span>
+    </p>
+    <p className="text-xs sm:text-sm text-white/40">
+      Projects Completed
+    </p>
+  </div>
+
+  {/* <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/5">
+    <p className="text-2xl sm:text-3xl font-bold text-white">
+      8<span className="text-[#00e5ff]">+</span>
+    </p>
+    <p className="text-xs sm:text-sm text-white/40">
+      Technologies
+    </p>
+  </div>
+
+  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/5">
+    <p className="text-2xl sm:text-3xl font-bold text-white">
+      100<span className="text-[#00e5ff]">%</span>
+    </p>
+    <p className="text-xs sm:text-sm text-white/40">
+      Dedication
+    </p>
+  </div> */}
+</div>
             </div>
 
             <div className="reveal-right relative">
@@ -521,13 +409,9 @@ export default function SoftwareEngineerPortfolio() {
                         </svg>
                       </div>
                       <blockquote className="text-lg sm:text-xl font-mono italic text-white/80 leading-relaxed">
-                        "Alex writes code that's not only efficient but a joy to read.
-                        A true force multiplier."
+                        "In this world, winning is everything. As long as I win in the end... that's all that matters."
                       </blockquote>
-                      <div>
-                        <p className="font-semibold text-white">— Dr. Sarah Chen, CTO</p>
-                        <p className="text-sm text-white/40">HealthTech Innovations</p>
-                      </div>
+                    
                     </div>
                   </div>
                 </div>
@@ -540,67 +424,7 @@ export default function SoftwareEngineerPortfolio() {
       </section>
 
       {/* ─── SKILLS ───────────────────────────────────────────────── */}
-      <section id="skills" className="py-16 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-white/5">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 reveal">
-            <span className="text-[#00e5ff] text-sm font-semibold tracking-[0.15em] uppercase">
-              Expertise
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-3">
-              <span className="text-white">Tech stack & </span>
-              <span className="gradient-cyan font-mono">tools</span>
-            </h2>
-            <div className="w-16 h-1 bg-[#00e5ff] rounded mx-auto mt-4"></div>
-            <p className="text-white/60 mt-6 leading-relaxed">
-              A modern, battle‑tested toolchain for building resilient applications.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {[
-              {
-                name: "Frontend",
-                items: ["React", "Next.js", "TypeScript", "Tailwind", "Framer Motion"],
-              },
-              {
-                name: "Backend",
-                items: ["Node.js", "Go", "Python", "GraphQL", "REST"],
-              },
-              {
-                name: "DevOps",
-                items: ["Kubernetes", "Docker", "AWS", "Terraform", "CI/CD"],
-              },
-              {
-                name: "Other",
-                items: [
-                  "TanStack Query",
-                  "Prisma",
-                  "PostgreSQL",
-                  "Redis",
-                  "WebSockets",
-                ],
-              },
-            ].map((category, idx) => (
-              <div
-                key={idx}
-                className="glass rounded-3xl p-6 sm:p-8 card-hover reveal"
-                style={{ transitionDelay: `${idx * 0.08}s` }}
-              >
-                <h3 className="text-xl font-bold text-white mb-4">
-                  {category.name}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {category.items.map((item) => (
-                    <span key={item} className="skill-tag text-xs px-3 py-1.5">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    <Skills/>
 
       {/* ─── PROJECTS ────────────────────────────────────────────── */}
         <Project/>
@@ -652,7 +476,7 @@ export default function SoftwareEngineerPortfolio() {
                       href="mailto:alex@ar.dev"
                       className="text-white/60 hover:text-[#00e5ff] transition-colors"
                     >
-                      alex@ar.dev
+                      shivanshuofficial123@gmail.com
                     </a>
                   </div>
                 </div>
@@ -680,7 +504,7 @@ export default function SoftwareEngineerPortfolio() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-white">Location</p>
-                    <p className="text-white/60">London · United Kingdom</p>
+                    <p className="text-white/60">Chhattishgarh · India</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -699,7 +523,7 @@ export default function SoftwareEngineerPortfolio() {
                       href="#"
                       className="text-white/60 hover:text-[#00e5ff] transition-colors"
                     >
-                      github.com/alexrivera
+                      https://github.com/Shivanshu666
                     </a>
                   </div>
                 </div>
@@ -731,7 +555,7 @@ export default function SoftwareEngineerPortfolio() {
                       type="text"
                       required
                       className="w-full px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 input-focus transition-all text-white placeholder:text-white/30"
-                      placeholder="Alex Rivera"
+                      placeholder="Shivanshu Prajapati"
                     />
                   </div>
                   <div>
@@ -742,7 +566,7 @@ export default function SoftwareEngineerPortfolio() {
                       type="email"
                       required
                       className="w-full px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 input-focus transition-all text-white placeholder:text-white/30"
-                      placeholder="alex@ar.dev"
+                      placeholder="shivanshuofficial123@gmail.com"
                     />
                   </div>
                   <div>

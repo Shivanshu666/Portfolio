@@ -9,7 +9,7 @@ import Button from "../ui/Button";
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/skills", label: "Work" },
+  { href: "/work", label: "Work" },
   { href: "/blog", label: "Blog" },
   { href: "/experience", label: "More" },
 ];
@@ -31,38 +31,32 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-useLayoutEffect(() => {
-  const updateIndicator = () => {
-    const el = linkRefs.current[activeKey];
+useEffect(() => {
+    const update = () => {
+        const el = linkRefs.current[activeKey];
 
-    if (!el) {
-      setIndicator((prev) => ({ ...prev, opacity: 0 }));
-      return;
-    }
+        if (!el) return;
 
-    setIndicator({
-      left: el.offsetLeft,
-      width: el.offsetWidth,
-      opacity: 1,
-    });
-  };
+        setIndicator({
+            left: el.offsetLeft,
+            width: el.offsetWidth,
+            opacity: 1
+        });
+    };
 
-  updateIndicator();
+    update();
 
-  requestAnimationFrame(updateIndicator);
+    window.addEventListener("resize", update);
 
-  window.addEventListener("resize", updateIndicator);
+    return () => window.removeEventListener("resize", update);
 
-  return () => {
-    window.removeEventListener("resize", updateIndicator);
-  };
 }, [activeKey]);
 
   return (
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[92%] md:w-auto">
   {/* Navbar */}
   <div
-    className={`flex items-center justify-between md:justify-center rounded-full px-3 py-2 transition-all duration-500 ${
+    className={`flex items-center justify-between md:justify-center rounded-full px-3 text-sm py-1 transition-all duration-500 ${
       scrolled
         ? "bg-white/10 backdrop-blur-xl border border-white/10 shadow-xl shadow-black/30"
         : "bg-white/5 backdrop-blur-md border border-white/10"
