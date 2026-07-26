@@ -1,0 +1,395 @@
+/* experience.css - Updated with professional icons */
+
+/* ─── SCROLL ANIMATIONS ────────────────────────────────────────── */
+
+/* Base animation classes */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.scroll-animate-stagger > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.scroll-animate-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+.scroll-animate-stagger.visible > *:nth-child(2) { transition-delay: 0.15s; }
+.scroll-animate-stagger.visible > *:nth-child(3) { transition-delay: 0.25s; }
+.scroll-animate-stagger.visible > *:nth-child(4) { transition-delay: 0.35s; }
+.scroll-animate-stagger.visible > *:nth-child(5) { transition-delay: 0.45s; }
+.scroll-animate-stagger.visible > *:nth-child(6) { transition-delay: 0.55s; }
+
+.scroll-animate-stagger.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Left to right */
+.scroll-animate-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.scroll-animate-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Right to left */
+.scroll-animate-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.scroll-animate-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale up */
+.scroll-animate-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.scroll-animate-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ─── PREMIUM EXPERIENCE STYLES ────────────────────────────────── */
+
+/* Glass morphism card */
+.experience-glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(79, 140, 255, 0.06) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.experience-glass:hover::before {
+  opacity: 1;
+}
+
+.experience-glass:hover {
+  border-color: rgba(79, 140, 255, 0.2);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── TIMELINE CONNECTOR ──────────────────────────────────────── */
+.timeline-connector {
+  position: relative;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(79, 140, 255, 0.4),
+    rgba(0, 229, 255, 0.4),
+    rgba(61, 220, 132, 0.4)
+  );
+}
+
+.timeline-connector::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    #4f8cff,
+    #00e5ff,
+    #3ddc84
+  );
+  opacity: 0.1;
+  animation: connector-pulse 3s ease-in-out infinite;
+}
+
+@keyframes connector-pulse {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.3; }
+}
+
+/* ─── TIMELINE NODE ───────────────────────────────────────────── */
+.timeline-node {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(79, 140, 255, 0.3);
+  background: rgba(11, 14, 20, 0.8);
+  backdrop-filter: blur(10px);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 2;
+}
+
+.timeline-node::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    #4f8cff,
+    #00e5ff,
+    #7b61ff,
+    #4f8cff
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotate-border 4s linear infinite;
+}
+
+@keyframes rotate-border {
+  to { --angle: 360deg; }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.timeline-node:hover {
+  transform: scale(1.2) rotate(10deg);
+  border-color: rgba(79, 140, 255, 0.8);
+  box-shadow: 0 0 40px rgba(79, 140, 255, 0.3);
+}
+
+.timeline-node .pulse-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(79, 140, 255, 0.2);
+  animation: pulse-ring-expand 2.5s ease-out infinite;
+}
+
+.timeline-node .pulse-ring:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.timeline-node .pulse-ring:nth-child(3) {
+  animation-delay: 1.6s;
+}
+
+@keyframes pulse-ring-expand {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* ─── NUMBER BADGE ────────────────────────────────────────────── */
+.timeline-number {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.1em;
+  background: rgba(11, 14, 20, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 2px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ─── CARD ICON ANIMATION ────────────────────────────────────── */
+.card-icon-wrapper {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex-shrink: 0;
+}
+
+.card-icon-wrapper svg {
+  width: 24px;
+  height: 24px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card-icon-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(79, 140, 255, 0.2), rgba(123, 97, 255, 0.2));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.experience-glass:hover .card-icon-wrapper::after {
+  opacity: 1;
+}
+
+.experience-glass:hover .card-icon-wrapper {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.experience-glass:hover .card-icon-wrapper svg {
+  transform: scale(1.1);
+}
+
+/* ─── TAG STYLES ───────────────────────────────────────────────── */
+.experience-tag {
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.experience-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 140, 255, 0.15);
+}
+
+/* ─── PERIOD BADGE ────────────────────────────────────────────── */
+.period-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(4px);
+}
+
+/* ─── SECTION DECORATIVE ELEMENTS ────────────────────────────── */
+.section-ornament {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.section-ornament-1 {
+  background: rgba(79, 140, 255, 0.1);
+  top: -100px;
+  right: -100px;
+  animation: float-ornament 12s ease-in-out infinite;
+}
+
+.section-ornament-2 {
+  background: rgba(0, 229, 255, 0.08);
+  bottom: -100px;
+  left: -100px;
+  animation: float-ornament 15s ease-in-out infinite reverse;
+}
+
+@keyframes float-ornament {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+/* ─── RESPONSIVE TWEAKS ───────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .timeline-node {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .card-icon-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .card-icon-wrapper svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .section-ornament {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 640px) {
+  .timeline-node {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .card-icon-wrapper {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .card-icon-wrapper svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .period-badge {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.8rem;
+  }
+  
+  .timeline-number {
+    font-size: 0.5rem;
+    bottom: -20px;
+  }
+}

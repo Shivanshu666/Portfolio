@@ -22,10 +22,10 @@ export default function Footer() {
           {/* brand */}
           <div className="flex flex-col items-center md:items-start gap-3">
             <span className="text-2xl sm:text-3xl font-mono font-bold tracking-tight text-white">
-              AR<span className="bg-gradient-to-r from-[#4f8cff] to-[#8b5cf6] bg-clip-text text-transparent">.</span>dev
+              SP<span className="bg-gradient-to-r from-[#4f8cff] to-[#8b5cf6] bg-clip-text text-transparent">.</span>dev
             </span>
             <span className="text-[10px] uppercase tracking-[0.25em] text-[#4f8cff] bg-gradient-to-r from-[#4f8cff]/10 to-[#8b5cf6]/10 border border-[#4f8cff]/20 px-3.5 py-1.5 rounded-full">
-              Senior Engineer
+              Full Stack Developer
             </span>
           </div>
 

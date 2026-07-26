@@ -1,0 +1,454 @@
+/* ==========================================================
+   HERO BACKGROUND
+========================================================== */
+
+.hero-pattern {
+  background:
+    radial-gradient(circle at 20% 50%, rgba(79,140,255,.06), transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(123,97,255,.05), transparent 55%),
+    radial-gradient(circle at 50% 80%, rgba(0,212,255,.04), transparent 55%);
+}
+
+.hero-spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      650px circle at var(--spot-x, 50%) var(--spot-y, 40%),
+      rgba(0,229,255,.08),
+      transparent 70%
+    );
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(79,140,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,140,255,.04) 1px, transparent 1px);
+
+  background-size: 56px 56px;
+
+  mask-image: radial-gradient(circle, black 35%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle, black 35%, transparent 80%);
+
+  animation: gridMove 18s linear infinite;
+}
+
+@keyframes gridMove {
+  from { background-position: 0 0; }
+  to { background-position: 56px 56px; }
+}
+
+/* ==========================================================
+   FLOATING AURORA
+========================================================== */
+
+.float-shape {
+  animation: float 8s ease-in-out infinite;
+}
+
+.float-shape-2 {
+  animation: float2 10s ease-in-out infinite;
+}
+
+.aurora {
+  animation:
+    float 8s ease-in-out infinite,
+    auroraShift 15s ease-in-out infinite;
+}
+
+.aurora-2 {
+  animation:
+    float2 10s ease-in-out infinite,
+    auroraShift 18s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-25px); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(18px); }
+}
+
+@keyframes auroraShift {
+  0%, 100% { filter: blur(60px) hue-rotate(0deg); }
+  50% { filter: blur(80px) hue-rotate(-30deg); }
+}
+
+/* ==========================================================
+   ORBIT ANIMATION
+   Rings rotate via `transform: rotate()`. The outer wrapper
+   in the component handles centering with translate(-50%,-50%),
+   so this rule ONLY ever animates rotation — never overwrite
+   it with a transform that includes the centering translate,
+   or the ring will jump instead of spin in place.
+========================================================== */
+
+.orbit-ring {
+  /* No `position` declared here on purpose: the element already gets
+     `position: absolute` from Tailwind's `absolute` utility in the JSX.
+     Tailwind v4 wraps its utilities in a CSS @layer, and unlayered rules
+     (like this file) always win over layered ones regardless of source
+     order — so declaring `position: relative` here would silently
+     override `absolute` and break the top/left/translate centering. */
+
+  /* fluid size: shrinks smoothly across all breakpoints instead
+     of relying on fixed px + media query overrides. Kept faint
+     via border-color alpha so it never visually competes with
+     the nav bar or heading, even though it's fairly large. */
+  width: clamp(300px, 44vw, 620px);
+  height: clamp(300px, 44vw, 620px);
+
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(0,229,255,.14);
+
+  animation: orbitRotate 40s linear infinite;
+  will-change: transform;
+}
+
+.orbit-ring-reverse {
+  width: clamp(170px, 24vw, 320px);
+  height: clamp(170px, 24vw, 320px);
+
+  border-width: 1px;
+  border-color: rgba(123,97,255,.12);
+
+  animation: orbitRotate 28s linear infinite reverse;
+}
+
+@keyframes orbitRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.orbit-dot {
+  position: absolute;
+
+  top: -4px;
+  left: 50%;
+
+  width: 8px;
+  height: 8px;
+
+  transform: translateX(-50%);
+
+  border-radius: 9999px;
+
+  background: #00e5ff;
+
+  box-shadow:
+    0 0 12px #00e5ff,
+    0 0 24px rgba(0,229,255,.8);
+}
+
+.orbit-dot-sm {
+  width: 5px;
+  height: 5px;
+
+  background: #7b61ff;
+
+  box-shadow:
+    0 0 12px #7b61ff,
+    0 0 20px rgba(123,97,255,.8);
+}
+
+/* ==========================================================
+   GRADIENT TEXT
+========================================================== */
+
+.software {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+}
+
+.gradient-blue {
+  background: linear-gradient(135deg, #4f8cff, #7b61ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-cyan {
+  background: linear-gradient(135deg, #00d4ff, #4f8cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-animate {
+  background: linear-gradient(120deg, #4f8cff, #7b61ff, #00d4ff, #4f8cff);
+  background-size: 300% 300%;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: gradientMove 7s ease infinite;
+}
+
+@keyframes gradientMove {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ==========================================================
+   HERO ENTRANCE ANIMATION
+========================================================== */
+
+.hero-enter {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: heroFade .9s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+@keyframes heroFade {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================
+   WORD REVEAL
+========================================================== */
+
+.word-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.word-reveal {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: wordReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+@keyframes wordReveal {
+  to { transform: translateY(0); }
+}
+
+/* ==========================================================
+   TILT CARD
+========================================================== */
+
+.tilt-card {
+  position: relative;
+  border-radius: 18px;
+
+  transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.tilt-card:hover {
+  box-shadow: 0 30px 80px rgba(0,229,255,.18);
+}
+
+/* ==========================================================
+   CODE BLOCK / TERMINAL WINDOW
+========================================================== */
+
+.code-block {
+  position: relative;
+
+  background: linear-gradient(145deg, rgba(20,26,36,.95), rgba(12,16,24,.98));
+
+  border-radius: 18px;
+  padding: 1.4rem;
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  overflow: hidden;
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: .85rem;
+}
+
+.code-block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,.08), transparent 80%);
+  background-size: 250% 250%;
+
+  animation: terminal-shine 6s linear infinite;
+
+  pointer-events: none;
+}
+
+@keyframes terminal-shine {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+.code-glow {
+  animation: code-breathe 5s ease-in-out infinite;
+}
+
+@keyframes code-breathe {
+  0%, 100% {
+    box-shadow:
+      0 15px 45px -15px rgba(79,140,255,.18),
+      0 0 30px rgba(0,212,255,.05);
+  }
+  50% {
+    box-shadow:
+      0 25px 70px -15px rgba(79,140,255,.35),
+      0 0 50px rgba(0,212,255,.12);
+  }
+}
+
+/* code syntax colors */
+.comment { color: #6b7a8f; }
+.keyword { color: #4f8cff; }
+.string  { color: #7b61ff; }
+.function{ color: #00d4ff; }
+
+/* ==========================================================
+   TYPEWRITER CURSOR
+========================================================== */
+
+.type-cursor {
+  display: inline-block;
+
+  width: .55em;
+  height: 1.15em;
+
+  margin-left: 3px;
+
+  vertical-align: middle;
+
+  background: #00d4ff;
+  border-radius: 2px;
+
+  animation: cursor-blink 1s step-end infinite;
+}
+
+.type-cursor-done {
+  animation:
+    cursor-blink 1s step-end infinite,
+    cursor-hide .8s ease 4s forwards;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes cursor-hide {
+  to { opacity: 0; }
+}
+
+/* ==========================================================
+   STATUS BAR
+========================================================== */
+
+.hero-status {
+  color: rgba(255,255,255,.45);
+  font-size: .875rem;
+}
+
+.hero-status span {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.glow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+
+  background: #34d399;
+
+  box-shadow: 0 0 15px rgba(52,211,153,.8);
+
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: .5; }
+}
+
+/* ==========================================================
+   BUTTON HOVER
+========================================================== */
+
+.hero-btn {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,229,255,.25);
+}
+
+/* ==========================================================
+   RESPONSIVE
+   Ring sizes are already fluid via clamp() above, so these
+   just tune density/opacity/spacing per breakpoint.
+========================================================== */
+
+@media (max-width: 1024px) {
+  .hero-grid {
+    background-size: 42px 42px;
+  }
+}
+
+@media (max-width: 768px) {
+  .code-block {
+    padding: 1rem;
+    font-size: .75rem;
+  }
+
+  .hero-grid {
+    background-size: 32px 32px;
+  }
+}
+
+/* ==========================================================
+   REDUCED MOTION ACCESSIBILITY
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-ring,
+  .orbit-ring-reverse,
+  .float-shape,
+  .float-shape-2,
+  .aurora,
+  .aurora-2,
+  .hero-grid,
+  .gradient-animate,
+  .code-glow,
+  .code-block::before,
+  .type-cursor,
+  .glow-dot,
+  .hero-enter,
+  .word-reveal {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .hero-enter,
+  .word-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
