@@ -62,106 +62,114 @@ export default function SoftwareEngineerPortfolio() {
     <>
     <Hero/>
     {/* 2nd section  */}
-      <section id="about" className="py-16 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div className="reveal-left space-y-6">
-           
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1]">
-                <span className="text-white">Code that </span>
-                <span className="gradient-blue font-mono">scales</span>
-                <span className="text-white">,</span>
-                <br />
-                <span className="text-white">teams that </span>
-                <span className="gradient-cyan">thrive</span>
-              </h2>
-              <div className="w-16 h-1 bg-[#00e5ff] rounded"></div>
-<p className="text-white/70 text-base sm:text-lg leading-relaxed">
-  I'm a <strong className="text-white">Full Stack Developer</strong> with
-  <strong className="text-white"> 1 year of hands-on experience</strong> building
-  modern web applications. I enjoy creating responsive user interfaces,
-  developing secure backend APIs, and delivering reliable, high-performance
-  solutions from concept to deployment.
-</p>
+    
+    <section
+  id="about"
+  className="relative overflow-hidden py-16 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8"
+>
+  <div className="max-w-7xl mx-auto">
+    <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-<p className="text-white/60 leading-relaxed">
-  I work with modern JavaScript technologies to build scalable applications,
-  focusing on clean code, performance, and maintainability. Every project is an
-  opportunity to learn, improve, and create software that makes an impact.
-</p>
-             <div className="grid grid-cols-2 gap-4 sm:gap-6 pt-4">
-  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/5">
-    <p className="text-2xl sm:text-3xl font-bold text-white">
-      1<span className="text-[#00e5ff]">+</span>
-    </p>
-    <p className="text-xs sm:text-sm text-white/40">
-      Years Experience
-    </p>
-  </div>
+      {/* Left Content */}
+      <div className="reveal-left space-y-6">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1]">
+          <span className="text-white">Code that </span>
+          <span className="gradient-blue font-mono">scales</span>
+          <span className="text-white">,</span>
+          <br />
+          <span className="text-white">teams that </span>
+          <span className="gradient-cyan">thrive</span>
+        </h2>
 
-  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/5">
-    <p className="text-2xl sm:text-3xl font-bold text-white">
-      15<span className="text-[#00e5ff]">+</span>
-    </p>
-    <p className="text-xs sm:text-sm text-white/40">
-      Projects Completed
-    </p>
-  </div>
+        <div className="w-16 h-1 rounded bg-[#00e5ff]" />
 
-  {/* <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/5">
-    <p className="text-2xl sm:text-3xl font-bold text-white">
-      8<span className="text-[#00e5ff]">+</span>
-    </p>
-    <p className="text-xs sm:text-sm text-white/40">
-      Technologies
-    </p>
-  </div>
+        <p className="text-white/70 text-base sm:text-lg leading-relaxed">
+          I'm a <strong className="text-white">Full Stack Developer</strong>{" "}
+          with
+          <strong className="text-white">
+            {" "}1 year of hands-on experience
+          </strong>{" "}
+          building modern web applications. I enjoy creating responsive user
+          interfaces, developing secure backend APIs, and delivering reliable,
+          high-performance solutions from concept to deployment.
+        </p>
 
-  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/5">
-    <p className="text-2xl sm:text-3xl font-bold text-white">
-      100<span className="text-[#00e5ff]">%</span>
-    </p>
-    <p className="text-xs sm:text-sm text-white/40">
-      Dedication
-    </p>
-  </div> */}
-</div>
-            </div>
+        <p className="text-white/60 leading-relaxed">
+          I work with modern JavaScript technologies to build scalable
+          applications, focusing on clean code, performance, and
+          maintainability. Every project is an opportunity to learn, improve,
+          and create software that makes an impact.
+        </p>
 
-            <div className="reveal-right relative">
-              <div className="relative">
-                <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl shadow-[#00e5ff]/10 border border-white/5">
-                  <div className="w-full h-full bg-gradient-to-br from-[#141a24] to-[#0b0e14] flex items-center justify-center p-6 sm:p-12">
-                    <div className="text-center space-y-4">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-[#00e5ff]/10 flex items-center justify-center">
-                        <svg
-                          className="w-8 h-8 sm:w-10 sm:h-10 text-[#00e5ff]"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="1.5"
-                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                          />
-                        </svg>
-                      </div>
-                      <blockquote className="text-lg sm:text-xl font-mono italic text-white/80 leading-relaxed">
-                        "In this world, winning is everything. As long as I win in the end... that's all that matters."
-                      </blockquote>
-                    
-                    </div>
-                  </div>
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 pt-4">
+          <div className="rounded-2xl border border-white/5 bg-white/5 backdrop-blur-sm p-4 sm:p-5">
+            <p className="text-2xl sm:text-3xl font-bold text-white">
+              1<span className="text-[#00e5ff]">+</span>
+            </p>
+            <p className="text-xs sm:text-sm text-white/40">
+              Years Experience
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-white/5 bg-white/5 backdrop-blur-sm p-4 sm:p-5">
+            <p className="text-2xl sm:text-3xl font-bold text-white">
+              15<span className="text-[#00e5ff]">+</span>
+            </p>
+            <p className="text-xs sm:text-sm text-white/40">
+              Projects Completed
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Card */}
+      <div className="reveal-right flex justify-center">
+        <div className="relative w-full max-w-xl overflow-hidden rounded-3xl">
+
+          {/* Glow Effects */}
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute top-0 right-0 h-24 w-24 rounded-full bg-[#00e5ff]/10 blur-2xl" />
+            <div className="absolute bottom-0 left-0 h-32 w-32 rounded-full bg-[#5ce1ff]/10 blur-2xl" />
+          </div>
+
+          {/* Card */}
+          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-br from-[#141a24] to-[#0b0e14] shadow-2xl shadow-[#00e5ff]/10">
+
+            <div className="flex h-full items-center justify-center p-6 sm:p-10 lg:p-12">
+
+              <div className="space-y-5 text-center">
+
+                <div className="mx-auto flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-[#00e5ff]/10">
+                  <svg
+                    className="h-8 w-8 sm:h-10 sm:w-10 text-[#00e5ff]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                    />
+                  </svg>
                 </div>
-                <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-[#00e5ff]/5 blur-2xl"></div>
-                <div className="absolute -bottom-4 -left-4 w-32 h-32 rounded-full bg-[#5ce1ff]/5 blur-2xl"></div>
+
+                <blockquote className="text-lg sm:text-xl lg:text-2xl italic font-mono leading-relaxed text-white/80">
+                  "In this world, winning is everything. As long as I win in the
+                  end... that's all that matters."
+                </blockquote>
+
               </div>
+
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <Skills/>
     <Project/>

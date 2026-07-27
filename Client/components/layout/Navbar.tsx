@@ -25,31 +25,44 @@ export default function Navbar() {
 
   const activeKey = hovered ?? pathname;
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
 useEffect(() => {
-    const update = () => {
-        const el = linkRefs.current[activeKey];
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 40);
+  };
 
-        if (!el) return;
+  handleScroll(); // run once immediately
 
-        setIndicator({
-            left: el.offsetLeft,
-            width: el.offsetWidth,
-            opacity: 1
-        });
-    };
+  window.addEventListener("scroll", handleScroll);
 
-    update();
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
-    window.addEventListener("resize", update);
+useLayoutEffect(() => {
+  const update = () => {
+    const el = linkRefs.current[activeKey];
 
-    return () => window.removeEventListener("resize", update);
+    if (!el || !el.parentElement) return;
 
+    const parentRect = el.parentElement.getBoundingClientRect();
+    const rect = el.getBoundingClientRect();
+
+    setIndicator({
+      left: rect.left - parentRect.left,
+      width: rect.width,
+      opacity: 1,
+    });
+  };
+
+  const raf = requestAnimationFrame(() => {
+    document.fonts?.ready?.then(update);
+  });
+
+  window.addEventListener("resize", update);
+
+  return () => {
+    cancelAnimationFrame(raf);
+    window.removeEventListener("resize", update);
+  };
 }, [activeKey]);
 
   return (

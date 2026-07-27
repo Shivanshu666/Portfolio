@@ -281,3 +281,6 @@
     right: -15px;
   }
 }
+.profile-card-wrapper{
+    overflow:hidden;
+}

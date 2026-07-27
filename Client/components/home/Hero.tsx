@@ -146,7 +146,7 @@ export default function Hero() {
         <span className="orbit-dot orbit-dot-sm" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 py-12">
+<div className="max-w-7xl mx-auto w-full overflow-hidden px-4 sm:px-6 lg:px-8 relative z-10 py-12">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* LEFT CONTENT */}
           <div className="space-y-6 sm:space-y-8">

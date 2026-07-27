@@ -184,7 +184,11 @@ export default function About() {
                 </div>
                 
                 <div className="mt-4 pt-4 border-t border-white/5 flex justify-center gap-4 text-sm text-white/40">
-                  <span>📧 shivanshuofficial123@gmail.com</span>
+              <div className="mt-4 pt-4 border-t border-white/5 flex justify-center">
+  <span className="text-sm text-white/40 break-all text-center">
+    📧 shivanshuofficial123@gmail.com
+  </span>
+</div>
                 </div>
                 
                 {/* ─── Availability with Animated Dot ────────────── */}
