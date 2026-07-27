@@ -184,7 +184,7 @@ export default function Hero() {
             >
               <a
                 href="#contact"
-                className="hero-btn px-8 py-4 rounded-full bg-[#00e5ff] text-white font-medium hover:bg-[#00b3c6] transition-all shadow-xl shadow-[#00e5ff]/20 inline-flex items-center gap-2"
+                className="hero-btn py-3 px-8 md:py-4 rounded-full bg-[#00e5ff] text-white font-medium hover:bg-[#00b3c6] transition-all shadow-xl shadow-[#00e5ff]/20 inline-flex items-center gap-2"
               >
                 Let's build
                 <span aria-hidden="true">→</span>
@@ -194,7 +194,7 @@ export default function Hero() {
                 href="https://www.linkedin.com/in/shivanshu-prajapati-b38012331/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 rounded-full border border-white/10 text-white/80 hover:border-[#00e5ff] hover:text-white transition-all inline-flex items-center gap-2"
+                className="px-8 py-3 md:py-4 rounded-full border border-white/10 text-white/80 hover:border-[#00e5ff] hover:text-white transition-all inline-flex items-center gap-2"
               >
                 Connect on LinkedIn
                 <span aria-hidden="true">→</span>
