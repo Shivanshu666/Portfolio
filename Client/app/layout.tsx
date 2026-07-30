@@ -6,6 +6,7 @@ import QueryProvider from "../providers/QueryProvider";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import IntroEye from "../components/Hero/IntroEye"; // 👈 import
+import ScrollToTop from "./ScrollToTop";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -31,6 +32,7 @@ export default function RootLayout({
         <QueryProvider>
           {/* <IntroEye>       */}
             <Navbar />
+            <ScrollToTop/>
             <main className="flex-1">{children}</main>
             <Footer />
           {/* </IntroEye> */}
