@@ -9,9 +9,9 @@ import Button from "../ui/Button";
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/work", label: "Work" },
-  { href: "/blog", label: "Blog" },
-  { href: "/experience", label: "More" },
+  // { href: "/work", label: "Work" },
+  // { href: "/blog", label: "Blog" },
+  // { href: "/experience", label: "More" },
 ];
 
 export default function Navbar() {
@@ -110,7 +110,7 @@ useLayoutEffect(() => {
 
     {/* Desktop Button */}
     <div className="hidden md:flex ml-3">
-      <Button href="/contact">Book a Call</Button>
+      <Button href="#contact">Book a Call</Button>
     </div>
 
     {/* Mobile */}
@@ -164,7 +164,7 @@ useLayoutEffect(() => {
       ))}
 
       <Button
-        href="/contact"
+        href="#contact"
         className="w-full justify-center mt-2"
       >
         Book a Call

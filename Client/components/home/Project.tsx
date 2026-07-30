@@ -205,7 +205,7 @@ export default function Projects() {
         </div>
 
         {/* View All */}
-        <div className="mt-12 flex justify-center">
+        {/* <div className="mt-12 flex justify-center">
           <Link
             href="/work"
             className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-white/10 text-white/60 hover:text-[#00e5ff] hover:border-[#00e5ff]/50 transition-all duration-300 text-sm font-medium"
@@ -222,7 +222,7 @@ export default function Projects() {
               <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );

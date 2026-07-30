@@ -218,7 +218,7 @@ export default function SoftwareEngineerPortfolio() {
                   <div>
                     <p className="text-sm font-medium text-white">Email</p>
                     <a
-                      href="mailto:alex@ar.dev"
+                      href="mailto:shivanshuofficial123@gmail.com"
                       className="text-white/60 hover:text-[#00e5ff] transition-colors"
                     >
                       shivanshuofficial123@gmail.com
@@ -265,10 +265,10 @@ export default function SoftwareEngineerPortfolio() {
                   <div>
                     <p className="text-sm font-medium text-white">GitHub</p>
                     <a
-                      href="#"
+                      href="https://github.com/Shivanshu666"
                       className="text-white/60 hover:text-[#00e5ff] transition-colors"
                     >
-                      https://github.com/Shivanshu666
+                      Shivanshu666
                     </a>
                   </div>
                 </div>

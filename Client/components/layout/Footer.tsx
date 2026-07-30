@@ -3,9 +3,9 @@ import Link from "next/link";
 const NAV = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Work", href: "/work" },
-  { label: "Blog", href: "/Blog" },
-  { label: "More", href: "/More" },
+  // { label: "Work", href: "/work" },
+  // { label: "Blog", href: "/Blog" },
+  // { label: "More", href: "/More" },
 ];
 
 export default function Footer() {

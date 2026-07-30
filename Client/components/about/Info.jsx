@@ -98,7 +98,7 @@ export default function About() {
             </p>
            <div className="flex justify-center items-center gap-6 pt-4">
   <a
-    href="https://github.com/yourusername"
+    href="https://github.com/Shivanshu666"
     target="_blank"
     rel="noopener noreferrer"
     className="text-white/70 hover:text-white transition-all duration-300 hover:scale-110"
@@ -108,7 +108,7 @@ export default function About() {
   </a>
 
   <a
-    href="https://linkedin.com/in/yourusername"
+    href="https://www.linkedin.com/in/shivanshu-prajapati-b38012331/"
     target="_blank"
     rel="noopener noreferrer"
     className="text-white/70 hover:text-[#0A66C2] transition-all duration-300 hover:scale-110"
@@ -118,7 +118,7 @@ export default function About() {
   </a>
 
   <a
-    href="mailto:your@email.com"
+    href="mailto:shivanshuofficial123@gmail.com"
     className="text-white/70 hover:text-[#4f8cff] transition-all duration-300 hover:scale-110"
     aria-label="Email"
   >
